@@ -20,7 +20,7 @@ class TgBot:
 
 @dataclass
 class Miscellaneous:
-    vk_token: str
+    pass
 
 
 @dataclass
@@ -46,7 +46,5 @@ def load_config(path: str = None):
             user=env.str('DB_USER'),
             database=env.str('DB_NAME')
         ),
-        misc=Miscellaneous(
-            vk_token=env.str('VK_TOKEN')
-        )
+        misc=Miscellaneous()
     )

@@ -3,8 +3,10 @@ import logging
 
 from tgbot.filters.admin import AdminFilter
 from tgbot.handlers.admin import register_admin
+from tgbot.handlers.user import register_user
+from tgbot.handlers.echo import register_echo
 from tgbot.middlewares.environment import EnvironmentMiddleware
-from tgbot.middlewares.sheduler import sheduler_jobs
+from tgbot.misc.sheduler import sheduler_jobs
 
 from create_bot import bot, dp, config, sheduler
 
@@ -26,7 +28,7 @@ def register_all_filters(dp):
 def register_all_handlers(dp):
     register_admin(dp)
     register_user(dp)
-    register_other(dp)
+    register_echo(dp)
 
 
 async def main():
