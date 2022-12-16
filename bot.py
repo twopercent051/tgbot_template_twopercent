@@ -6,9 +6,9 @@ from tgbot.handlers.admin import register_admin
 from tgbot.handlers.user import register_user
 from tgbot.handlers.echo import register_echo
 from tgbot.middlewares.environment import EnvironmentMiddleware
-from tgbot.misc.sheduler import sheduler_jobs
+from tgbot.misc.scheduler import scheduler_jobs
 
-from create_bot import bot, dp, config, sheduler
+from create_bot import bot, dp, config, scheduler
 
 logger = logging.getLogger(__name__)
 file_log = logging.FileHandler("logger.log")
@@ -43,8 +43,8 @@ async def main():
     register_all_middlewares(dp, config)
     register_all_filters(dp)
     register_all_handlers(dp)
-    sheduler.start()
-    sheduler_jobs()
+    scheduler.start()
+    scheduler_jobs()
 
     # start
     try:
